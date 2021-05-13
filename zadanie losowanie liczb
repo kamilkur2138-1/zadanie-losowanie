@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            var lista = LosujBezPowtorzen(1, 49);
+            foreach (var item in lista)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        static List<int> LosujBezPowtorzen(int start, int stop)
+        {
+            List<int> listaLiczb = new List<int>();
+            Random r = new Random();
+            while (listaLiczb.Count != 6)
+            {
+                var liczba = r.Next(start, stop);
+                int element = listaLiczb.Find(a => a == liczba);
+                if (element == 0) listaLiczb.Add(liczba);
+
+            }
+            return listaLiczb;
+        }
+    }
+}
